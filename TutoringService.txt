@@ -1,0 +1,165 @@
+/*
+Charbel el Chidiac 201702774
+Mariane Daher
+Anthony Semaan
+*/
+CREATE DATABASE TutoringService;
+
+USE TutoringService;
+
+CREATE TABLE IF NOT EXISTS STUDENT
+(
+  studentID VARCHAR(50) NOT NULL, 
+  firstName VARCHAR(50) NOT NULL,
+  lastName VARCHAR(50) NOT NULL,
+  address VARCHAR(100),
+  email VARCHAR(50) NOT NULL,
+  phoneNb VARCHAR(50),
+  dateOfBirth VARCHAR(50), -- here we are using just the year
+  PRIMARY KEY (studentID)
+);
+
+CREATE TABLE IF NOT EXISTS INSTRUCTOR
+(
+ 
+  instructorId VARCHAR(50) NOT NULL, 
+  firstName VARCHAR(50) NOT NULL,
+  lastName VARCHAR(50) NOT NULL,
+  dateOfBirth VARCHAR(50),   -- here we are using just the year
+  email VARCHAR(50) NOT NULL,
+  major VARCHAR(50) NOT NULL,
+  address VARCHAR(100),
+  phone_Nb VARCHAR(50),
+  PRIMARY KEY (instructorID)
+);
+
+CREATE TABLE IF NOT EXISTS TRIAL_SESSION
+(
+ trialID VARCHAR(50) NOT NULL,
+ studentId VARCHAR(50),
+ date DATE NOT NULL,
+ time TIME,
+ meetingId VARCHAR(50) NOT NULL,
+ meetingPassword VARCHAR(50) NOT NULL,
+ meetingLink VARCHAR(50) NOT NULL,
+ courseCovered VARCHAR(50) NOT NULL,
+ feedback VARCHAR(50),
+ instructorId VARCHAR(50),
+ 
+ FOREIGN KEY (studentID) REFERENCES STUDENT(studentID),
+ FOREIGN KEY (instructorId) REFERENCES INSTRUCTOR(instructorId),
+ PRIMARY KEY (trialID)
+ 
+);
+
+CREATE TABLE IF NOT EXISTS TRACK
+(
+trackID VARCHAR(50) NOT NULL,
+trackName VARCHAR(50) NOT NULL,
+min_age DECIMAL(3,0) NOT NULL,
+max_age DECIMAL(3,0) NOT NULL,
+description VARCHAR(50) NOT NULL,										#RESERVED WORD
+PRIMARY KEY (trackID)
+);
+
+CREATE TABLE IF NOT EXISTS COURSE
+(
+courseId VARCHAR(50) NOT NULL,
+courseName VARCHAR(50) NOT NULL,
+nbOfSessions DECIMAL(3,0) NOT NULL,
+description VARCHAR(50) NOT NULL,
+curriculum VARCHAR(50) NOT NULL,
+cost DECIMAL(3,0) NOT NULL,
+type VARCHAR(50) NOT NULL,
+trackID VARCHAR(50) NOT NULL,         										#RESERVED WORD
+
+FOREIGN KEY (trackId) REFERENCES TRACK(trackID),
+PRIMARY KEY (courseId)
+);
+
+CREATE TABLE IF NOT EXISTS PRIVATE_COURSE
+(
+ privateId VARCHAR(50) NOT NULL,
+ instructorId VARCHAR(50),
+ meetingId VARCHAR(50) NOT NULL,
+ meetingPassword VARCHAR(50) NOT NULL,
+ meetingLink VARCHAR(50) NOT NULL,
+ courseId VARCHAR(50),
+ studentId VARCHAR(50),
+ date DATE NOT NULL,									#RESERVED WORD
+
+ FOREIGN KEY (courseId) REFERENCES COURSE(courseId),
+ FOREIGN KEY (studentID) REFERENCES STUDENT(studentID),
+ FOREIGN KEY (instructorId) REFERENCES INSTRUCTOR(instructorId),
+ PRIMARY KEY (privateId)
+);
+
+CREATE TABLE IF NOT EXISTS PRIVATE_SESSION
+(
+privatesessId VARCHAR(50) NOT NULL,
+feedback VARCHAR(50) NOT NULL,
+date DATE NOT NULL,													#RESERVED WORD
+time TIME NOT NULL, 												#RESERVED WORD
+fee DECIMAL(3,0) CHECK(fee BETWEEN 1 AND 999),
+privateId VARCHAR(50),
+
+FOREIGN KEY (privateId) REFERENCES PRIVATE_COURSE(privateId),
+PRIMARY KEY (privatesessId)
+);
+
+CREATE TABLE IF NOT EXISTS GROUP_COURSE
+(
+ 
+  groupId VARCHAR(50) NOT NULL,
+  instructorId VARCHAR(50),
+  meetingPassword VARCHAR(50) NOT NULL,
+  meetingLink VARCHAR(50) NOT NULL,
+  accountEmail VARCHAR(50) NOT NULL,
+  accountPass VARCHAR(50) NOT NULL,
+  courseId VARCHAR(50),
+  meetingId VARCHAR(50) NOT NULL,
+  
+  FOREIGN KEY (courseId) REFERENCES COURSE(courseId),
+  FOREIGN KEY (instructorId) REFERENCES INSTRUCTOR(instructorId),
+  PRIMARY KEY (groupId)
+);
+
+CREATE TABLE IF NOT EXISTS REG_GROUP_COURSE
+(
+studentID VARCHAR(50),
+groupId VARCHAR(50),
+date DATE NOT NULL,												#RESERVED WORD
+
+FOREIGN KEY (studentID) REFERENCES STUDENT(studentID),
+FOREIGN KEY (groupId) REFERENCES GROUP_COURSE(groupId),
+PRIMARY KEY (studentID, groupId)
+);
+
+CREATE TABLE IF NOT EXISTS GROUP_SESSION
+(
+groupsessId VARCHAR(50) NOT NULL,
+date DATE NOT NULL,													#RESERVED WORD
+time TIME NOT NULL, 												#RESERVED WORD
+fee DECIMAL(3,0) CHECK(fee BETWEEN 1 AND 999),
+groupId VARCHAR(50),
+
+FOREIGN KEY (groupId) REFERENCES GROUP_COURSE(groupId),
+PRIMARY KEY (groupsessId)
+);
+
+ALTER TABLE student
+ADD COLUMN username VARCHAR(50) NOT NULL;
+ALTER TABLE student
+ADD COLUMN pass VARCHAR(50) NOT NULL;
+ALTER TABLE instructor
+ADD COLUMN username VARCHAR(50) NOT NULL;
+ALTER TABLE instructor
+ADD COLUMN pass VARCHAR(50) NOT NULL;
+alter table instructor add constraint unique(username);
+alter table student add constraint unique(username);
+
+
+
+
+
+insert into trial_session values("T100",null, '2021-12-20', '18:00:00', "M100","123","www.example.com","math","hard",null);
