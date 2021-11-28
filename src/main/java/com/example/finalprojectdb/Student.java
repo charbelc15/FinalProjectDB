@@ -19,6 +19,7 @@ public class Student extends SQL_Connector {
     private String pass;
     private Random rdn;
     private int randomNumber;
+    private String randomString;
 
     public Student(String firstName, String lastName, String address, String email,
                    String phoneExtenstion, String phoneNb, String dateOfBirth, String username,
