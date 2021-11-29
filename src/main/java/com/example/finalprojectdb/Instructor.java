@@ -1,11 +1,12 @@
 package com.example.finalprojectdb;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Random;
 
 public class Instructor extends SQL_Connector {
-    public static int counter=1;
+    public static int counter;
     private String instructorId;
     private String firstName;
     private String lastName;
@@ -20,7 +21,26 @@ public class Instructor extends SQL_Connector {
 
     public Instructor(String firstName, String lastName, String dateOfBirth, String email,
                    String major, String address, String phone_ext, String phone_Nb, String username,
-                   String pass) {
+                   String pass) throws SQLException {
+
+        String getCountSQL = "SELECT COUNT(instructorId) FROM instructor";
+        Connection conn = null;
+        ResultSet rs= null;
+        try {
+            conn = SQL_Connector.getDBConnection();
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+
+        PreparedStatement ps = conn.prepareStatement(getCountSQL);
+            rs = ps.executeQuery(getCountSQL);
+
+        while (rs.next()) {
+            counter = rs.getInt(1) + 1;
+        }
+
+        SQL_Connector.closeConnection(conn,ps);
+
         this.pass=pass;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -33,6 +53,8 @@ public class Instructor extends SQL_Connector {
         this.pass = pass;
         this.major=major;
         this.instructorId= String.valueOf(counter);
+
+
     }
 
     public Instructor(String instructorId,String firstName, String lastName, String dateOfBirth, String email,
@@ -162,6 +184,7 @@ public class Instructor extends SQL_Connector {
         String sql = "INSERT INTO instructor (instructorId,firstName, lastName, dateOfBirth, email,\n" +
                 "                      major,address, phone_ext,phone_Nb, username,\n" +
                 "                      pass) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1, String.valueOf(counter));
         statement.setString(2,firstName);

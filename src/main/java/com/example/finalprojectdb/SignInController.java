@@ -106,6 +106,7 @@ public class SignInController implements Initializable {
 
                 String writtenUsername = userNameTextField.getText();
                 String writtenPassword = passwordPasswordField.getText();
+
                 if (writtenUsername.equals(username) && writtenPassword.equals(password)) {
 
                     NameHolder.getInstance().setName(userNameTextField.getText());
