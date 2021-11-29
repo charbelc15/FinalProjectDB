@@ -1,5 +1,4 @@
 package com.example.finalprojectdb;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -8,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
 public class PageLoader {
     private String path;
     private String title;
@@ -40,7 +38,4 @@ public class PageLoader {
         AboutPage_window.setResizable(false);
         AboutPage_window.show();
     }
-
-
-
 }

@@ -80,7 +80,7 @@ public class SignUpController implements Initializable {
         String years="";
 
         yearComboBox.getItems().removeAll(yearComboBox.getItems());
-        yearComboBox.getItems().addAll("1980 - 1989", "1990 - 1999", "2000 - 2004", " 2005 - 2009", "2010 - 2014", "2015 - 2020");
+        yearComboBox.getItems().addAll("1960 - 1969","1970 - 1979", "1980 - 1989", "1990 - 1999", "2000 - 2004", " 2005 - 2009", "2010 - 2014", "2015 - 2020");
 
     }
 
