@@ -62,30 +62,30 @@ public class TrialBookController extends Application implements Initializable {
                         }
 
                     //updating the displayed picture
-                Path imageFile = Paths.get("src/main/resources/images/male-student.png");
-                UserImage.setImage(new Image(imageFile.toUri().toURL().toExternalForm()));
+                    Path imageFile = Paths.get("src/main/resources/images/male-student.png");
+                    UserImage.setImage(new Image(imageFile.toUri().toURL().toExternalForm()));
 
 
-                    //updating how many courses he/she already registered in
-                ResultSet rsCourse = conn.createStatement().executeQuery("SELECT COUNT(DISTINCT trialID) AS courseNb " +
-                        "FROM trial_session " +
-                        " WHERE studentID=" + "(Select studentID from student where username=\"" + NameHolder.getInstance().getName() +"\")");
-                rsCourse.next();
-                courseNb.setText(rsCourse.getString("courseNb"));
+                        //updating how many courses he/she already registered in
+                    ResultSet rsCourse = conn.createStatement().executeQuery("SELECT COUNT(DISTINCT trialID) AS courseNb " +
+                            "FROM trial_session " +
+                            " WHERE studentID=" + "(Select studentID from student where username=\"" + NameHolder.getInstance().getName() +"\")");
+                    rsCourse.next();
+                    courseNb.setText(rsCourse.getString("courseNb"));
 
-                    //updating number of booked sessions
-                ResultSet rsBooked = conn.createStatement().executeQuery("SELECT COUNT(DISTINCT trialID) AS courseNb " +
-                        "FROM trial_session " +
-                        " WHERE  studentID NOT IN(" + "(Select studentID from student where username=\"" + NameHolder.getInstance().getName() +"\"))");
-                rsBooked.next();
-                booked.setText(rsBooked.getString("courseNb"));
+                        //updating number of booked sessions
+                    ResultSet rsBooked = conn.createStatement().executeQuery("SELECT COUNT(DISTINCT trialID) AS courseNb " +
+                            "FROM trial_session " +
+                            " WHERE  studentID NOT IN(" + "(Select studentID from student where username=\"" + NameHolder.getInstance().getName() +"\"))");
+                    rsBooked.next();
+                    booked.setText(rsBooked.getString("courseNb"));
 
-                    //displaying ID
-                ResultSet rsID = conn.createStatement().executeQuery("SELECT studentID " +
-                        "FROM student " +
-                        "WHERE username=\"" + NameHolder.getInstance().getName() +"\"");
-                rsID.next();
-                ID.setText(rsID.getString("studentID"));
+                        //displaying ID
+                    ResultSet rsID = conn.createStatement().executeQuery("SELECT studentID " +
+                            "FROM student " +
+                            "WHERE username=\"" + NameHolder.getInstance().getName() +"\"");
+                    rsID.next();
+                    ID.setText(rsID.getString("studentID"));
                 }
             else{
                     // Execute query and store result in a resultset
