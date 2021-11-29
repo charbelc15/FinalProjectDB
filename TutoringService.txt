@@ -14,8 +14,9 @@ CREATE TABLE IF NOT EXISTS STUDENT
   lastName VARCHAR(50) NOT NULL,
   address VARCHAR(100),
   email VARCHAR(50) NOT NULL,
+  phoneExtenstion VARCHAR(50),
   phoneNb VARCHAR(50),
-  dateOfBirth VARCHAR(50), -- here we are using just the year
+  dateOfBirth DECIMAL(4,0), -- here we are using just the year
   PRIMARY KEY (studentID)
 );
 
@@ -29,6 +30,7 @@ CREATE TABLE IF NOT EXISTS INSTRUCTOR
   email VARCHAR(50) NOT NULL,
   major VARCHAR(50) NOT NULL,
   address VARCHAR(100),
+  phone_ext VARCHAR(50),
   phone_Nb VARCHAR(50),
   PRIMARY KEY (instructorID)
 );
@@ -161,5 +163,66 @@ alter table student add constraint unique(username);
 
 
 
+insert into trial_session values("T101", null, "2021-12-22","10:00:00","M101","123","www.example1.com","Letters","easy",null);
+insert into trial_session values("T102", null, "2021-11-22","11:00:00","M102","234","www.example2.com","Nature","easy",null);
+insert into trial_session values("T103", null, "2021-10-22","12:00:00","M103","456","www.example3.com","Calculus","medium",null);
+insert into trial_session values("T104", null, "2021-09-22","13:00:00","M104","567","www.example4.com","Algebra","medium",null);
+insert into trial_session values("T105", null, "2021-08-22","14:00:00","M105","678","www.example5.com","SQL","hard",null);
+insert into trial_session values("T106", null, "2021-07-22","15:00:00","M106","890","www.example6.com","Csharp","hard",null);
 
-insert into trial_session values("T100",null, '2021-12-20', '18:00:00', "M100","123","www.example.com","math","hard",null);
+
+insert into track  values("T1", "Litterature", 4, 7, "easy");
+insert into track  values("T2", "Science", 7, 10, "easy");
+insert into track  values("T3", "Math", 10, 13, "medium");
+insert into track  values("T4", "Programming", 13, 17, "hard");
+
+insert into course values("C00", "Letters", 5,"easy","C1",10,"private","T1");
+insert into course values("C01", "Nature", 6,"easy","C2",20,"private","T2");
+insert into course values("C02", "Calculus", 7,"medium","C3",30,"private","T3");
+insert into course values("C03", "Algebra", 8,"medium","C4",40,"group","T3");
+insert into course values("C04", "SQL", 9,"hard","C5",50,"group","T4");
+insert into course values("C05", "Csharp", 10,"hard","C6",60,"group","T4");
+
+
+
+insert into group_course values("Group1",null,"123","wwww.zoom1.com","example@outlook.com","pass1","C03","M200");
+insert into group_course values("Group2",null,"123","wwww.zoom2.com","example@outlook.com","pass1","C04","M201");
+insert into group_course values("Group3",null,"123","wwww.zoom3.com","example@outlook.com","pass1","C05","M202");
+
+insert into private_course values("Private1",null,"M300","pass2","wwww.webex1.com","C01",null,"2021-09-8"); #dates here are considered as start dates
+insert into private_course values("Private2",null,"M301","pass2","wwww.webex1.com","C02",null,"2021-09-9");
+insert into private_course values("Private3",null,"M302","pass2","wwww.webex1.com","C03",null,"2021-09-10");
+
+
+
+insert into group_session values("S1","2021-09-8","13:00:00",10,"Group1");
+insert into group_session values("S2","2021-09-8","15:00:00",10,"Group1");
+insert into group_session values("S3","2021-09-8","17:00:00",10,"Group1");
+
+insert into group_session values("S4","2021-09-9","13:00:00",10,"Group2");
+insert into group_session values("S5","2021-09-9","15:00:00",10,"Group2");
+insert into group_session values("S6","2021-09-9","17:00:00",10,"Group2");
+
+insert into group_session values("S7","2021-09-10","13:00:00",10,"Group3");
+insert into group_session values("S8","2021-09-10","15:00:00",10,"Group3");
+insert into group_session values("S9","2021-09-10","17:00:00",10,"Group3");
+
+
+insert into private_session values("S1","easy","2021-09-11","13:00:00",10,"Private1");
+insert into private_session values("S2","easy","2021-09-11","15:00:00",10,"Private1");
+insert into private_session values("S3","easy","2021-09-11","17:00:00",10,"Private1");
+
+insert into private_session values("S4","easy","2021-09-12","13:00:00",10,"Private2");
+insert into private_session values("S5","easy","2021-09-12","15:00:00",10,"Private2");
+insert into private_session values("S6","easy","2021-09-12","17:00:00",10,"Private2");
+
+insert into private_session values("S7","easy","2021-09-13","13:00:00",10,"Private3");
+insert into private_session values("S8","easy","2021-09-13","15:00:00",10,"Private3");
+insert into private_session values("S9","easy","2021-09-13","17:00:00",10,"Private3");
+
+
+
+
+
+
+

@@ -243,8 +243,13 @@ public class TrialBookController extends Application implements Initializable {
         goingTo.loadPage(event);
     }
 
-    public void onCourse(ActionEvent event) throws IOException{
-        PageLoader goingTo= new PageLoader("CourseBook.fxml", "Book a Course");
+    public void onPCourse(ActionEvent event) throws IOException{
+        PageLoader goingTo= new PageLoader("PCourseBook.fxml", "Book a Course");
+        goingTo.loadPage(event);
+    }
+
+    public void onGCourse(ActionEvent event) throws IOException{
+        PageLoader goingTo= new PageLoader("GCourseBook.fxml", "Book a Course");
         goingTo.loadPage(event);
     }
 

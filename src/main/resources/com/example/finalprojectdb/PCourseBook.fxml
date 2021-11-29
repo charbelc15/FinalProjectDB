@@ -45,7 +45,7 @@
                         <Insets left="50.0" />
                     </padding>
                 </Button>
-                <Button fx:id="btnPCourse" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#onPCourse" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../CSS/style.css" text="Book a Private Course">
+                <Button fx:id="btnPCourse" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../CSS/style.css" text="Book a Private Course">
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -57,7 +57,7 @@
                         <Insets left="50.0" />
                     </padding>
                 </Button>
-                <Button fx:id="btnGCourse" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#onGCourse" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../CSS/style.css" text="Book a Group course">
+                <Button fx:id="btnGCourse" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#onCourse" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../CSS/style.css" text="Book a Group course">
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -121,7 +121,7 @@
                 <Pane fx:id="pnlOverview" prefHeight="554.0" prefWidth="793.0">
                     <children>
                         <TextField layoutX="585.0" layoutY="47.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" />
-                        <Label layoutX="57.0" layoutY="25.0" text="Trial Session booking" textFill="#e7e5e5">
+                        <Label layoutX="57.0" layoutY="25.0" text="Private Course booking" textFill="#e7e5e5">
                             <font>
                                 <Font size="24.0" />
                             </font>
@@ -172,7 +172,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" layoutX="3.0" layoutY="178.0" prefHeight="42.0" prefWidth="754.0" spacing="80.0" style="-fx-background-color: #02030A;">
                             <children>
-                                <Label prefHeight="18.0" prefWidth="46.0" stylesheets="@../../../CSS/style.css" text="Trial ID" textFill="#e7e5e5">
+                                <Label prefHeight="18.0" prefWidth="49.0" stylesheets="@../../../CSS/style.css" text="CourseID" textFill="#e7e5e5">
                                     <HBox.margin>
                                         <Insets left="50.0" />
                                     </HBox.margin>
