@@ -77,7 +77,7 @@ public class SignInController implements Initializable {
     @FXML
     public void onBackButtonClick(ActionEvent e) throws IOException {
         System.out.println ("About Us clicked");
-        PageLoader loaderSignUp= new PageLoader("SignUpUI.fxml", "sign up page");
+        PageLoader loaderSignUp= new PageLoader("About_Layout.fxml", "About us");
         loaderSignUp.loadPage(e);
     }
 
