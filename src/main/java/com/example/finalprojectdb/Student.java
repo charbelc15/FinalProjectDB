@@ -2,11 +2,12 @@ package com.example.finalprojectdb;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Random;
 
 public class Student extends SQL_Connector {
-    public static int counter=1;
+    public static int counter;
     private String id;
     private String firstName;
     private String lastName;
@@ -21,7 +22,25 @@ public class Student extends SQL_Connector {
 
     public Student(String firstName, String lastName, String address, String email,
                    String phoneExtenstion, String phoneNb, String dateOfBirth, String username,
-                   String pass) {
+                   String pass) throws SQLException {
+
+        String getCountSQL = "SELECT COUNT(studentId) FROM student";
+        Connection conn = null;
+        ResultSet rs= null;
+        try {
+            conn = SQL_Connector.getDBConnection();
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+
+        PreparedStatement ps = conn.prepareStatement(getCountSQL);
+        rs = ps.executeQuery(getCountSQL);
+
+        String x= rs.getString(1);
+        counter= Integer.parseInt(x) +1;
+
+        SQL_Connector.closeConnection(conn,ps);
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
