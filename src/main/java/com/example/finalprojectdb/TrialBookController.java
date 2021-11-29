@@ -61,6 +61,7 @@ public class TrialBookController extends Application implements Initializable {
                         trialID.getItems().addAll(rs.getString("trialID"));
                         }
 
+                    //hi
                     //updating the displayed picture
                     Path imageFile = Paths.get("src/main/resources/images/male-student.png");
                     UserImage.setImage(new Image(imageFile.toUri().toURL().toExternalForm()));
