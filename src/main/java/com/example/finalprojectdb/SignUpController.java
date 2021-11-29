@@ -79,16 +79,17 @@ public class SignUpController implements Initializable {
         String years="";
 
         yearComboBox.getItems().removeAll(yearComboBox.getItems());
-        yearComboBox.getItems().addAll("1960 - 1969","1970 - 1979", "1980 - 1989", "1990 - 1999", "2000 - 2004", " 2005 - 2009", "2010 - 2014", "2015 - 2020");
-
+        for (int i= 1960; i<2021 ; i++) {
+            yearComboBox.getItems().add (i + "");
+        }
     }
 
     @FXML
     public void signUpButtonPressed (ActionEvent event) throws IOException, SQLException {
         System.out.println("signup pressed");
 
-        String queryCheckStudent = "SELECT * FROM student";
-        String queryCheckInstructor ="SELECT * FROM instructor";
+        String queryCheckStudent    = "SELECT * FROM student";
+        String queryCheckInstructor = "SELECT * FROM instructor";
         PreparedStatement ps = null;
         Boolean checking= true; //boolean to be used to check if username used or not
         Boolean emptyUsername =  false;
@@ -133,7 +134,7 @@ public class SignUpController implements Initializable {
                 }
 
                 else {
-                    OutputtedLabel.setText("Successfully Signed Up");
+                    OutputtedLabel.setText("Successfully Signed Up as a student");
                     checking = true;
                 }
             }
@@ -165,7 +166,7 @@ public class SignUpController implements Initializable {
                 }
 
                 else {
-                    OutputtedLabel.setText("Successfully Signed Up");
+                    OutputtedLabel.setText("Successfully Signed Up as an instructor");
                     checking = true;
                 }
             }
@@ -173,7 +174,7 @@ public class SignUpController implements Initializable {
         if (studentRadioButton.isSelected() && checking && !emptyUsername) {
 
             Student student= new Student(firstNameTextField.getText(),lastNameTextField.getText(),AddressTextField.getText(),emailAddressTextField.getText(),extensionTextField.getText(),
-                    phoneNumberTextField.getText(), (String) yearComboBox.getValue(),
+                    phoneNumberTextField.getText(),  Integer.parseInt((String)yearComboBox.getValue()),
                     userNameTextField.getText(),passwordPasswordField.getText());
 
             student.insertStudentRecord(); System.out.println("query student executed");

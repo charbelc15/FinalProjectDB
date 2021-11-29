@@ -15,16 +15,16 @@ public class Student extends SQL_Connector {
     private String email;
     private String phoneExtenstion;
     private String phoneNb;
-    private String dateOfBirth;
+    private int dateOfBirth;
     private String username;
     private String pass;
     private Random rdn;
 
     public Student(String firstName, String lastName, String address, String email,
-                   String phoneExtenstion, String phoneNb, String dateOfBirth, String username,
+                   String phoneExtenstion, String phoneNb, int dateOfBirth, String username,
                    String pass) throws SQLException {
 
-        String getCountSQL = "SELECT COUNT(studentId) FROM student";
+        String getCountSQL = "SELECT COUNT(studentId) AS COUNTING FROM student";
         Connection conn = null;
         ResultSet rs= null;
         try {
@@ -36,9 +36,9 @@ public class Student extends SQL_Connector {
         PreparedStatement ps = conn.prepareStatement(getCountSQL);
         rs = ps.executeQuery(getCountSQL);
 
-        String x= rs.getString(1);
-        counter= Integer.parseInt(x) +1;
-
+        while (rs.next()) {
+            counter = rs.getInt(1) + 1;
+        }
         SQL_Connector.closeConnection(conn,ps);
 
         this.firstName = firstName;
@@ -50,11 +50,11 @@ public class Student extends SQL_Connector {
         this.dateOfBirth = dateOfBirth;
         this.username = username;
         this.pass = pass;
-        this.id= String.valueOf(counter);
+        this.id= counter + "";
     }
 
     public Student(String id, String firstName, String lastName,
-                   String address, String email, String phoneExtenstion, String phoneNb, String dateOfBirth,
+                   String address, String email, String phoneExtenstion, String phoneNb, int dateOfBirth,
                    String username, String pass, Random rdn) {
         this.id = id;
         this.firstName = firstName;
@@ -101,7 +101,7 @@ public class Student extends SQL_Connector {
         return phoneNb;
     }
 
-    public String getDateOfBirth() {
+    public int getDateOfBirth() {
         return dateOfBirth;
     }
 
@@ -145,7 +145,7 @@ public class Student extends SQL_Connector {
         this.phoneNb = phoneNb;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(int dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -178,7 +178,7 @@ public class Student extends SQL_Connector {
         statement.setString(5,email);
         statement.setString(6,phoneExtenstion);
         statement.setString(7,phoneNb);
-        statement.setString(8,dateOfBirth);
+        statement.setInt(8,dateOfBirth);
         statement.setString(9,username);
         statement.setString(10,pass);
 
