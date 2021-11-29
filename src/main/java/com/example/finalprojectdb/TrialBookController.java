@@ -33,6 +33,9 @@ public class TrialBookController extends Application implements Initializable {
 
     public Button registerBtn;
     public Button SignOutBtn;
+    public Button btnTrial;
+    public Button btnCourse;
+
 
 
     @Override
@@ -234,4 +237,15 @@ public class TrialBookController extends Application implements Initializable {
         PageLoader goingTo= new PageLoader("SignInUI.fxml", "Sign In");
         goingTo.loadPage(event);
     }
+
+    public void onTrial(ActionEvent event) throws IOException{
+        PageLoader goingTo= new PageLoader("TrialBook.fxml", "Book a Trial");
+        goingTo.loadPage(event);
+    }
+
+    public void onCourse(ActionEvent event) throws IOException{
+        PageLoader goingTo= new PageLoader("CourseBook.fxml", "Book a Course");
+        goingTo.loadPage(event);
+    }
+
 }
