@@ -21,7 +21,7 @@
     <children>
         <VBox alignment="TOP_CENTER" prefHeight="576.0" prefWidth="256.0" style="-fx-background-color: #05071F;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <ImageView fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="UserImage" fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                     <VBox.margin>
                         <Insets bottom="10.0" top="50.0" />
                     </VBox.margin>

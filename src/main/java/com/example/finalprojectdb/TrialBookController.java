@@ -9,10 +9,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -20,6 +25,8 @@ import java.util.ResourceBundle;
 public class TrialBookController extends Application implements Initializable {
 
     public Label name;
+    public ImageView UserImage;
+
     public Label courseNb, booked, totalSessions, ID; //courseNb : how many he/she registered  //booked: taken by someone else //total
     public ComboBox trialID;
     public TextArea dateTA, timeTA, courseTA, instructorTA, studentTA;
@@ -43,6 +50,8 @@ public class TrialBookController extends Application implements Initializable {
         try {
             name.setText("Welcome, " + NameHolder.getInstance().getName());
             Connection conn = SQL_Connector.getDBConnection();
+
+
             if(NameHolder.getInstance().getRole()=="student"){
                     //Setting courses list
                     // Execute query and store result in a resultset
@@ -51,6 +60,10 @@ public class TrialBookController extends Application implements Initializable {
                     while (rs.next()) {
                         trialID.getItems().addAll(rs.getString("trialID"));
                         }
+
+                    //updating the displayed picture
+                Path imageFile = Paths.get("src/main/resources/images/male-student.png");
+                UserImage.setImage(new Image(imageFile.toUri().toURL().toExternalForm()));
 
 
                     //updating how many courses he/she already registered in
@@ -81,6 +94,10 @@ public class TrialBookController extends Application implements Initializable {
                     while (rs.next()) {
                         trialID.getItems().addAll(rs.getString("trialID"));
                     }
+
+                    //updating the displayed picture
+                    Path imageFile = Paths.get("src/main/resources/images/instructor.png");
+                    UserImage.setImage(new Image(imageFile.toUri().toURL().toExternalForm()));
 
 
                     //updating how many courses he/she already registered in
@@ -114,7 +131,7 @@ public class TrialBookController extends Application implements Initializable {
 
             conn.close();
 
-        } catch (SQLException ex) {
+        } catch (SQLException | MalformedURLException ex) {
             System.err.println("Error"+ex);
         }
 
