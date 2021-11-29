@@ -10,7 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.w3c.dom.Text;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
