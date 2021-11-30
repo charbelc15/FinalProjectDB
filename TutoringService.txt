@@ -176,7 +176,7 @@ insert into track  values("T2", "Science", 7, 10, "easy");
 insert into track  values("T3", "Math", 10, 13, "medium");
 insert into track  values("T4", "Programming", 13, 17, "hard");
 
-insert into course values("C00", "Letters", 5,"easy","C1",10,"private","T1");
+insert into course values(  "C00", "Letters", 5,"easy","C1",10,"private","T1");
 insert into course values("C01", "Nature", 6,"easy","C2",20,"private","T2");
 insert into course values("C02", "Calculus", 7,"medium","C3",30,"private","T3");
 insert into course values("C03", "Algebra", 8,"medium","C4",40,"group","T3");

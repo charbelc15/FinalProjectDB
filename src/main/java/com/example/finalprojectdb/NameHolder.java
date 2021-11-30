@@ -2,7 +2,7 @@ package com.example.finalprojectdb;
 
 public final class NameHolder {
 
-        private String name;
+        private String name; //username
         private String role;
         private final static NameHolder INSTANCE = new NameHolder();
 

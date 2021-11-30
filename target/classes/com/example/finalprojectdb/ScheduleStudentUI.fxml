@@ -2,11 +2,293 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1050.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalprojectdb.ScheduleStudentController">
+    <children>
+        <VBox alignment="TOP_CENTER" prefHeight="576.0" prefWidth="256.0" style="-fx-background-color: #05071F;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <ImageView fx:id="UserImage" fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                    <VBox.margin>
+                        <Insets bottom="10.0" top="50.0" />
+                    </VBox.margin>
+                    <image>
+                        <Image url="@../../../images/male-student.png" />
+                    </image></ImageView>
+                <Label fx:id="name" text=" Username" textFill="#e7e5e5">
+                    <VBox.margin>
+                        <Insets bottom="20.0" />
+                    </VBox.margin>
+                </Label>
+                <Button fx:id="btnTrial" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#onTrial" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../CSS/style.css" text="Book a Trial">
+                    <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../images/try.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <padding>
+                        <Insets left="50.0" />
+                    </padding>
+                </Button>
+                <Button fx:id="btnPCourse" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#onPCourse" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../CSS/style.css" text="Book a Private Course">
+                    <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../images/individual.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <padding>
+                        <Insets left="50.0" />
+                    </padding>
+                </Button>
+                <Button fx:id="btnGCourse" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#onGCourse" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../CSS/style.css" text="Book a Group course">
+                    <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../images/crowd.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <padding>
+                        <Insets left="50.0" />
+                    </padding>
+                </Button>
+                <Button fx:id="btnCalendar" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../CSS/style.css" text="My Calendar" textFill="#e7e5e5">
+                    <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../images/calendar.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets left="50.0" />
+                    </padding>
+                </Button>
+                <Button fx:id="btnFees" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../CSS/style.css" text="My Fees">
+                    <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../images/fees.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <padding>
+                        <Insets left="50.0" />
+                    </padding>
+                </Button>
+                <Button fx:id="SignOutBtn" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#onSignOut" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../CSS/style.css" text="Sign Out">
+                    <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../images/icons8_Sign_Out_32px.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <padding>
+                        <Insets left="50.0" />
+                    </padding>
+                </Button>
+            <DatePicker fx:id="datePicker" prefHeight="26.0" prefWidth="187.0" style="-fx-background-color: #262561;" />
+            </children>
+        </VBox>
+        <StackPane layoutX="258.0" prefHeight="576.0" prefWidth="793.0" style="-fx-background-color: #02030A;">
+            <children>
+                <Pane fx:id="pnlCustomer" prefHeight="200.0" prefWidth="200.0" />
+                <Pane fx:id="pnlOrders" prefHeight="200.0" prefWidth="200.0" />
+                <Pane fx:id="pnlMenus" prefHeight="200.0" prefWidth="200.0" />
+                <Pane fx:id="pnlOverview" prefHeight="554.0" prefWidth="793.0">
+                    <children>
+                        <Label layoutX="45.0" layoutY="14.0" text="My Calendar" textFill="#e7e5e5">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                  <Label fx:id="locale_date" layoutX="532.0" layoutY="14.0" text="date here" textFill="#e7e5e5">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <GridPane gridLinesVisible="true" layoutX="7.0" layoutY="60.0" prefHeight="495.0" prefWidth="739.0" style="-fx-background-color: #05071F;">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.8000122070313" minWidth="5.0" prefWidth="102.99995117187501" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="592.000048828125" minWidth="10.0" prefWidth="592.000048828125" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="eight" mnemonicParsing="false" prefHeight="51.0" prefWidth="593.0" style="-fx-background-color: #05071F;" text="Button" textFill="WHITE" GridPane.columnIndex="1">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="nine" layoutX="156.0" layoutY="10.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="593.0" style="-fx-background-color: #05071F;" text="Button" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="ten" layoutX="156.0" layoutY="48.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="593.0" style="-fx-background-color: #05071F;" text="Button" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="eleven" layoutX="156.0" layoutY="87.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="593.0" style="-fx-background-color: #05071F;" text="Button" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="twelve" layoutX="156.0" layoutY="125.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="593.0" style="-fx-background-color: #05071F;" text="Button" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="thirteen" layoutX="156.0" layoutY="125.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="593.0" style="-fx-background-color: #05071F;" text="Button" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="fourteen" layoutX="156.0" layoutY="202.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="593.0" style="-fx-background-color: #05071F;" text="Button" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="fifteen" layoutX="156.0" layoutY="240.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="593.0" style="-fx-background-color: #05071F;" text="Button" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="sixteen" layoutX="156.0" layoutY="279.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="593.0" style="-fx-background-color: #05071F;" text="Button" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="seventeen" layoutX="156.0" layoutY="317.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="593.0" style="-fx-background-color: #05071F;" text="Button" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="eighteen" layoutX="156.0" layoutY="356.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="593.0" style="-fx-background-color: #05071F;" text="Button" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="nineteen" layoutX="156.0" layoutY="394.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="593.0" style="-fx-background-color: #05071F;" text="Button" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="twenty" layoutX="156.0" layoutY="432.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="593.0" style="-fx-background-color: #05071F;" text="Button" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="61.0" prefWidth="146.0" style="-fx-background-color: #262561;" text="8:00" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="146.0" style="-fx-background-color: #262561;" text="9:00" textFill="WHITE" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="146.0" style="-fx-background-color: #262561;" text="10:00" textFill="WHITE" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="87.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="146.0" style="-fx-background-color: #262561;" text="11:00" textFill="WHITE" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="125.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="146.0" style="-fx-background-color: #262561;" text="12:00" textFill="WHITE" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="164.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="146.0" style="-fx-background-color: #262561;" text="13:00" textFill="WHITE" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="202.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="146.0" style="-fx-background-color: #262561;" text="14:00" textFill="WHITE" GridPane.rowIndex="6">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="240.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="146.0" style="-fx-background-color: #262561;" text="15:00" textFill="WHITE" GridPane.rowIndex="7">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="279.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="146.0" style="-fx-background-color: #262561;" text="16:00" textFill="WHITE" GridPane.rowIndex="8">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="317.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="146.0" style="-fx-background-color: #262561;" text="17:00" textFill="WHITE" GridPane.rowIndex="9">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="356.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="146.0" style="-fx-background-color: #262561;" text="18:00" textFill="WHITE" GridPane.rowIndex="10">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="394.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="146.0" style="-fx-background-color: #262561;" text="19:00" textFill="WHITE" GridPane.rowIndex="11">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="432.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="146.0" style="-fx-background-color: #262561;" text="20:00" textFill="WHITE" GridPane.rowIndex="12">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </GridPane>
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+    <effect>
+        <DropShadow color="#1b1eeb" />
+    </effect>
+</AnchorPane>
