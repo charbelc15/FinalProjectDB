@@ -57,7 +57,7 @@
                         <Insets left="50.0" />
                     </padding>
                 </Button>
-                <Button fx:id="btnGCourse" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#onCourse" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../CSS/style.css" text="Book a Group course">
+                <Button fx:id="btnGCourse" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#onGCourse" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../CSS/style.css" text="Book a Group course">
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -69,7 +69,7 @@
                         <Insets left="50.0" />
                     </padding>
                 </Button>
-                <Button fx:id="btnCalendar" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../CSS/style.css" text="My Calendar" textFill="#e7e5e5">
+                <Button fx:id="btnCalendar" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#onCalendar" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../CSS/style.css" text="My Calendar" textFill="#e7e5e5">
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -120,8 +120,8 @@
                 <Pane fx:id="pnlMenus" prefHeight="200.0" prefWidth="200.0" />
                 <Pane fx:id="pnlOverview" prefHeight="554.0" prefWidth="793.0">
                     <children>
-                        <TextField layoutX="585.0" layoutY="47.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" />
-                        <Label layoutX="57.0" layoutY="25.0" text="Trial Session booking" textFill="#e7e5e5">
+                        <TextField editable="false" layoutX="585.0" layoutY="47.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" text="Learning is fun" />
+                        <Label layoutX="57.0" layoutY="25.0" text="Group course booking" textFill="#e7e5e5">
                             <font>
                                 <Font size="24.0" />
                             </font>
@@ -140,22 +140,12 @@
                                 </VBox>
                                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                                     <children>
-                                        <Label fx:id="booked" text="0" textFill="#26bfbc">
+                                        <Label fx:id="totalSessions" text="0" textFill="#fa5f7e">
                                             <font>
                                                 <Font name="System Bold" size="26.0" />
                                             </font>
                                         </Label>
-                                        <Label text="Taken by Others" textFill="#e7e5e5" />
-                                    </children>
-                                </VBox>
-                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                                    <children>
-                                        <Label fx:id="totalSessions" text="10" textFill="#fa5f7e">
-                                            <font>
-                                                <Font name="System Bold" size="26.0" />
-                                            </font>
-                                        </Label>
-                                        <Label text="Total Sessions" textFill="#e7e5e5" />
+                                        <Label text="Total Courses" textFill="#e7e5e5" />
                                     </children>
                                 </VBox>
                                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
@@ -172,19 +162,14 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" layoutX="3.0" layoutY="178.0" prefHeight="42.0" prefWidth="754.0" spacing="80.0" style="-fx-background-color: #02030A;">
                             <children>
-                                <Label prefHeight="18.0" prefWidth="46.0" stylesheets="@../../../CSS/style.css" text="Trial ID" textFill="#e7e5e5">
+                                <Label prefHeight="18.0" prefWidth="52.0" stylesheets="@../../../CSS/style.css" text="CourseID" textFill="#e7e5e5">
                                     <HBox.margin>
                                         <Insets left="50.0" />
                                     </HBox.margin>
                                 </Label>
-                                <Label prefHeight="18.0" prefWidth="39.0" stylesheets="@../../../CSS/style.css" text="Date" textFill="#e7e5e5">
+                                <Label prefHeight="18.0" prefWidth="45.0" stylesheets="@../../../CSS/style.css" text="Level" textFill="#e7e5e5">
                                     <HBox.margin>
-                                        <Insets />
-                                    </HBox.margin>
-                                </Label>
-                                <Label prefHeight="18.0" prefWidth="51.0" stylesheets="@../../../CSS/style.css" text="Time" textFill="#e7e5e5">
-                                    <HBox.margin>
-                                        <Insets />
+                                        <Insets left="-40.0" />
                                     </HBox.margin>
                                 </Label>
                                 <Label prefHeight="18.0" prefWidth="56.0" stylesheets="@../../../CSS/style.css" text="Course " textFill="#e7e5e5">
@@ -192,12 +177,12 @@
                                         <Insets />
                                     </HBox.margin>
                                 </Label>
-                                <Label prefHeight="18.0" prefWidth="71.0" stylesheets="@../../../CSS/style.css" text="Instructor ID" textFill="#e7e5e5">
+                                <Label prefHeight="18.0" prefWidth="71.0" stylesheets="@../../../CSS/style.css" text="InstructorID" textFill="#e7e5e5">
                                     <HBox.margin>
                                         <Insets />
                                     </HBox.margin>
                                 </Label>
-                        <Label prefHeight="18.0" prefWidth="66.0" text="StudentID" textFill="#e7e7e7" />
+                        <Label prefHeight="18.0" prefWidth="66.0" text="Curriculum" textFill="#e7e7e7" />
                             </children>
                         </HBox>
                         <ScrollPane layoutX="14.0" layoutY="232.0" prefHeight="320.0" prefWidth="754.0" stylesheets="@../../../CSS/style.css">
@@ -209,20 +194,12 @@
                            <children>
                               <HBox prefHeight="71.0" prefWidth="796.0">
                                  <children>
-                                    <ComboBox fx:id="trialID" onAction="#fillOthers" prefHeight="26.0" prefWidth="98.0">
+                                    <ComboBox fx:id="courseID" onAction="#fillOthers" prefHeight="26.0" prefWidth="98.0">
                                        <opaqueInsets>
                                           <Insets />
                                        </opaqueInsets>
                                     </ComboBox>
-                                    <TextArea fx:id="dateTA" editable="false" prefHeight="24.0" prefWidth="99.0">
-                                       <opaqueInsets>
-                                          <Insets left="50.0" />
-                                       </opaqueInsets>
-                                       <HBox.margin>
-                                          <Insets bottom="30.0" left="12.0" />
-                                       </HBox.margin>
-                                    </TextArea>
-                                    <TextArea fx:id="timeTA" editable="false" prefHeight="24.0" prefWidth="99.0">
+                                    <TextArea fx:id="levelTA" editable="false" prefHeight="24.0" prefWidth="99.0">
                                        <opaqueInsets>
                                           <Insets left="50.0" />
                                        </opaqueInsets>
@@ -246,7 +223,7 @@
                                           <Insets bottom="30.0" left="10.0" />
                                        </HBox.margin>
                                     </TextArea>
-                                    <TextArea fx:id="studentTA" prefHeight="41.0" prefWidth="93.0">
+                                    <TextArea fx:id="curriculumTA" editable="false" prefHeight="41.0" prefWidth="93.0">
                                        <HBox.margin>
                                           <Insets bottom="30.0" left="10.0" />
                                        </HBox.margin>
@@ -257,7 +234,12 @@
                                  <children>
                                     <Button fx:id="registerBtn" alignment="CENTER" mnemonicParsing="false" onAction="#Register" prefHeight="46.0" prefWidth="116.0" style="-fx-background-color: red;" text="Register">
                                        <HBox.margin>
-                                          <Insets left="300.0" top="50.0" />
+                                          <Insets left="200.0" top="50.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="DeregisterBtn" alignment="CENTER" mnemonicParsing="false" onAction="#Deregister" prefHeight="46.0" prefWidth="116.0" style="-fx-background-color: red;" text="Deregister">
+                                       <HBox.margin>
+                                          <Insets left="50.0" top="50.0" />
                                        </HBox.margin>
                                     </Button>
                                  </children>

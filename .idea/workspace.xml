@@ -5,49 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="700f4f26-fef0-4c12-ae3c-57aa24ffd981" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_dlsc_formsfx_formsfx_core_11_3_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__eu_hansolo_tilesfx_11_48.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_synedra_validatorfx_0_1_13.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_controlsfx_controlsfx_11_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_7_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_7_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_7_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_7_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_kordamp_bootstrapfx_bootstrapfx_core_0_4_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_kordamp_ikonli_ikonli_core_12_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_kordamp_ikonli_ikonli_javafx_12_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_15_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_15_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_15_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_15_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_15_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_15_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_15_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_15_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_media_15_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_media_win_15_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_web_15_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_web_win_15_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProjectDB.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TutoringService.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TutoringService.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/finalprojectdb/NameHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/finalprojectdb/NameHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/finalprojectdb/ScheduleStudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/finalprojectdb/ScheduleStudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/finalprojectdb/GCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/finalprojectdb/GCourseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/finalprojectdb/PCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/finalprojectdb/PCourseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/finalprojectdb/TrialBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/finalprojectdb/TrialBookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/finalprojectdb/ScheduleStudentUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/finalprojectdb/ScheduleStudentUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/finalprojectdb/GCourseBook.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/finalprojectdb/GCourseBook.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/finalprojectdb/PCourseBook.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/finalprojectdb/PCourseBook.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/finalprojectdb/TrialBook.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/finalprojectdb/TrialBook.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/finalprojectdb/ScheduleStudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/finalprojectdb/ScheduleStudentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/finalprojectdb/ScheduleStudentUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/finalprojectdb/ScheduleStudentUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/finalprojectdb/GCourseBook.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/finalprojectdb/GCourseBook.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/finalprojectdb/GCourseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/finalprojectdb/GCourseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/finalprojectdb/PCourseBook.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/finalprojectdb/PCourseBook.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/finalprojectdb/PCourseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/finalprojectdb/PCourseController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/finalprojectdb/TrialBook.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/finalprojectdb/TrialBook.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/finalprojectdb/TrialBookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/finalprojectdb/TrialBookController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +45,11 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.23087622" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Charbel\IdeaProjects\FinalProjectDB\src\main\resources\com\example\finalprojectdb" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="MainApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -103,7 +79,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1638260296150</updated>
-      <workItem from="1638260298539" duration="1394000" />
+      <workItem from="1638260298539" duration="28538000" />
+      <workItem from="1638364477154" duration="2739000" />
     </task>
     <servers />
   </component>

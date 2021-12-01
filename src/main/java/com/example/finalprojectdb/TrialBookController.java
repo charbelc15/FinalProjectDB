@@ -34,7 +34,6 @@ public class TrialBookController extends Application implements Initializable {
     public Button registerBtn;
     public Button SignOutBtn;
     public Button btnTrial;
-    public Button btnCourse;
 
 
 
@@ -42,7 +41,7 @@ public class TrialBookController extends Application implements Initializable {
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("TrialBook.fxml"));
         Scene scene = new Scene(root);
-        stage.setTitle("Sign In page");
+        stage.setTitle("Book Trial Session page");
         stage.setScene(scene);
         stage.show();
     }
@@ -184,14 +183,14 @@ public class TrialBookController extends Application implements Initializable {
                 rsStudent.next();
                 studentTA.setText(rsStudent.getString("studentId"));
 
-                //updating courseNb on register press
+                //updating courseNb (number of sessions booked by himself) on register press
                 ResultSet rsCourse = conn.createStatement().executeQuery("SELECT COUNT(DISTINCT trialID) AS courseNb " +
                                                                                "FROM trial_session " +
                                                                                 " WHERE studentID=" + "(Select studentID from student where username=\"" + NameHolder.getInstance().getName() +"\")");
                 rsCourse.next();
                 courseNb.setText(rsCourse.getString("courseNb"));
 
-                //updating number of booked sessions
+                //updating number of booked sessions by others, it will display how many trial sessions are left
                 ResultSet rsBooked = conn.createStatement().executeQuery("SELECT COUNT(DISTINCT trialID) AS courseNb " +
                         "FROM trial_session " +
                         " WHERE  studentID NOT IN(" + "(Select studentID from student where username=\"" + NameHolder.getInstance().getName() +"\"))");
@@ -212,6 +211,70 @@ public class TrialBookController extends Application implements Initializable {
                 instructorTA.setText(rsInstructor.getString("instructorId"));
 
                 //updating courseNb on register press
+                ResultSet rsCourse = conn.createStatement().executeQuery("SELECT COUNT(DISTINCT trialID) AS courseNb " +
+                        "FROM trial_session " +
+                        " WHERE instructorID=" + "(Select instructorID from instructor where username=\"" + NameHolder.getInstance().getName() +"\")");
+                rsCourse.next();
+                courseNb.setText(rsCourse.getString("courseNb"));
+
+                //updating number of booked sessions
+                ResultSet rsBooked = conn.createStatement().executeQuery("SELECT COUNT(DISTINCT trialID) AS courseNb " +
+                        "FROM trial_session " +
+                        " WHERE  instructorId NOT IN(" + "(Select instructorID from instructor where username=\"" + NameHolder.getInstance().getName() +"\"))");
+                rsBooked.next();
+                booked.setText(rsBooked.getString("courseNb"));
+            }
+
+            conn.close();
+
+        } catch (SQLException ex) {
+            System.err.println("Error"+ex);
+        }
+    }
+
+    public void Deregister(){
+        try {
+            Connection conn = SQL_Connector.getDBConnection();
+            if(NameHolder.getInstance().getRole()=="student"){
+                String sql = "UPDATE trial_session " +
+                        "SET studentID=NULL " +
+                        "WHERE trialID=\""+trialID.getValue()+"\"";
+                PreparedStatement statement = conn.prepareStatement(sql);
+                statement.execute();
+
+                //updating studentID on deregister press
+                ResultSet rsStudent = conn.createStatement().executeQuery("SELECT studentId FROM trial_session WHERE trialID=\"" + trialID.getValue() +"\"");
+                rsStudent.next();
+                studentTA.setText(rsStudent.getString("studentId"));
+
+                //updating courseNb (number of sessions booked by himself) on deregister press
+                ResultSet rsCourse = conn.createStatement().executeQuery("SELECT COUNT(DISTINCT trialID) AS courseNb " +
+                        "FROM trial_session " +
+                        " WHERE studentID=" + "(Select studentID from student where username=\"" + NameHolder.getInstance().getName() +"\")");
+                rsCourse.next();
+                courseNb.setText(rsCourse.getString("courseNb"));
+
+                //updating number of booked sessions by others, it will display how many trial sessions are left
+                ResultSet rsBooked = conn.createStatement().executeQuery("SELECT COUNT(DISTINCT trialID) AS courseNb " +
+                        "FROM trial_session " +
+                        " WHERE  studentID NOT IN(" + "(Select studentID from student where username=\"" + NameHolder.getInstance().getName() +"\"))");
+                rsBooked.next();
+                booked.setText(rsBooked.getString("courseNb"));
+
+            }
+            else{
+                String sql = "UPDATE trial_session " +
+                        "SET instructorID=NULL " +
+                        "WHERE trialID=\""+trialID.getValue()+"\"";
+                PreparedStatement statement = conn.prepareStatement(sql);
+                statement.execute();
+
+                //updating instructorID on deregister press
+                ResultSet rsInstructor = conn.createStatement().executeQuery("SELECT instructorId FROM trial_session WHERE trialID=\"" + trialID.getValue() +"\"");
+                rsInstructor.next();
+                instructorTA.setText(rsInstructor.getString("instructorId"));
+
+                //updating courseNb on deregister press
                 ResultSet rsCourse = conn.createStatement().executeQuery("SELECT COUNT(DISTINCT trialID) AS courseNb " +
                         "FROM trial_session " +
                         " WHERE instructorID=" + "(Select instructorID from instructor where username=\"" + NameHolder.getInstance().getName() +"\")");

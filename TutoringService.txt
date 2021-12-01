@@ -88,7 +88,6 @@ CREATE TABLE IF NOT EXISTS PRIVATE_COURSE
  meetingLink VARCHAR(50) NOT NULL,
  courseId VARCHAR(50),
  studentId VARCHAR(50),
- date DATE NOT NULL,									#RESERVED WORD
 
  FOREIGN KEY (courseId) REFERENCES COURSE(courseId),
  FOREIGN KEY (studentID) REFERENCES STUDENT(studentID),
@@ -176,7 +175,7 @@ insert into track  values("T2", "Science", 7, 10, "easy");
 insert into track  values("T3", "Math", 10, 13, "medium");
 insert into track  values("T4", "Programming", 13, 17, "hard");
 
-insert into course values(  "C00", "Letters", 5,"easy","C1",10,"private","T1");
+insert into course values("C00", "Letters", 5,"easy","C1",10,"private","T1");
 insert into course values("C01", "Nature", 6,"easy","C2",20,"private","T2");
 insert into course values("C02", "Calculus", 7,"medium","C3",30,"private","T3");
 insert into course values("C03", "Algebra", 8,"medium","C4",40,"group","T3");
@@ -185,13 +184,20 @@ insert into course values("C05", "Csharp", 10,"hard","C6",60,"group","T4");
 
 
 
-insert into group_course values("Group1",null,"123","wwww.zoom1.com","example@outlook.com","pass1","C03","M200");
-insert into group_course values("Group2",null,"123","wwww.zoom2.com","example@outlook.com","pass1","C04","M201");
-insert into group_course values("Group3",null,"123","wwww.zoom3.com","example@outlook.com","pass1","C05","M202");
+insert into group_course values("Group1",null,"123","wwww.zoom1.com","example@outlook.com","pass1","C03","M200"); #group courses are for courses 3 to 5 : ages 10 to 17
+insert into group_course values("Group2",null,"123","wwww.zoom2.com","example@outlook.com","pass1","C04","M201"); #hanna 16 , imad 12
+insert into group_course values("Group3",null,"123","wwww.zoom3.com","example@outlook.com","pass1","C05","M202"); #hannach 123
+insert into group_course values("Group4",null,"123","wwww.zoom3.com","example@outlook.com","pass1","C03","M202"); #imadch 123
+insert into group_course values("Group5",null,"123","wwww.zoom3.com","example@outlook.com","pass1","C04","M202");
+insert into group_course values("Group6",null,"123","wwww.zoom3.com","example@outlook.com","pass1","C05","M202");
 
-insert into private_course values("Private1",null,"M300","pass2","wwww.webex1.com","C01",null,"2021-09-8"); #dates here are considered as start dates
-insert into private_course values("Private2",null,"M301","pass2","wwww.webex1.com","C02",null,"2021-09-9");
-insert into private_course values("Private3",null,"M302","pass2","wwww.webex1.com","C03",null,"2021-09-10");
+
+insert into private_course values("Private1",null,"M300","pass2","wwww.webex1.com","C00",null); #private courses are for courses 0 to 2 : age 4 to 13
+insert into private_course values("Private2",null,"M301","pass2","wwww.webex1.com","C01",null); #imad 12 paul 9 kevin 6
+insert into private_course values("Private3",null,"M302","pass2","wwww.webex1.com","C02",null); #imadch 123
+insert into private_course values("Private4",null,"M302","pass2","wwww.webex1.com","C00",null); #paul48 4848
+insert into private_course values("Private5",null,"M302","pass2","wwww.webex1.com","C01",null); #kevinH 123
+insert into private_course values("Private6",null,"M302","pass2","wwww.webex1.com","C02",null); #date attribute was removed from here
 
 
 
@@ -207,6 +213,18 @@ insert into group_session values("S7","2021-09-10","13:00:00",10,"Group3");
 insert into group_session values("S8","2021-09-10","15:00:00",10,"Group3");
 insert into group_session values("S9","2021-09-10","17:00:00",10,"Group3");
 
+insert into group_session values("S10","2021-09-11","13:00:00",10,"Group4");
+insert into group_session values("S11","2021-09-11","15:00:00",10,"Group4");
+insert into group_session values("S12","2021-09-11","17:00:00",10,"Group4");
+
+insert into group_session values("S13","2021-09-12","13:00:00",10,"Group5");
+insert into group_session values("S14","2021-09-12","15:00:00",10,"Group5");
+insert into group_session values("S15","2021-09-12","17:00:00",10,"Group5");
+
+insert into group_session values("S16","2021-09-13","13:00:00",10,"Group6");
+insert into group_session values("S17","2021-09-13","15:00:00",10,"Group6");
+insert into group_session values("S18","2021-09-13","17:00:00",10,"Group6");
+
 
 insert into private_session values("S1","easy","2021-09-11","13:00:00",10,"Private1");
 insert into private_session values("S2","easy","2021-09-11","15:00:00",10,"Private1");
@@ -220,7 +238,25 @@ insert into private_session values("S7","easy","2021-09-13","13:00:00",10,"Priva
 insert into private_session values("S8","easy","2021-09-13","15:00:00",10,"Private3");
 insert into private_session values("S9","easy","2021-09-13","17:00:00",10,"Private3");
 
+insert into private_session values("S10","easy","2021-09-14","13:00:00",10,"Private4");
+insert into private_session values("S11","easy","2021-09-14","15:00:00",10,"Private4");
+insert into private_session values("S12","easy","2021-09-14","17:00:00",10,"Private4");
 
+insert into private_session values("S13","easy","2021-09-15","13:00:00",10,"Private5");
+insert into private_session values("S14","easy","2021-09-15","15:00:00",10,"Private5");
+insert into private_session values("S15","easy","2021-09-15","17:00:00",10,"Private5");
+
+insert into private_session values("S16","easy","2021-09-16","13:00:00",10,"Private6");
+insert into private_session values("S17","easy","2021-09-16","15:00:00",10,"Private6");
+insert into private_session values("S18","easy","2021-09-16","17:00:00",10,"Private6");
+
+#select * from trial_session;           #FOR trial session REGISTRATIONS display
+#select * from private_session natural join private_course natural join course natural join track; #FOR PRIVATE COURSE REGISTRATION DISPLAY
+#select * from group_session natural join group_course natural join course natural join track; #FOR GROUP REGISTRATION/SESSSION DISPLAY
+#select * from reg_group_course;       #FOR GROUP COURSE REGISTRATIONS
+
+#select * from student
+#select * from instructor
 
 
 

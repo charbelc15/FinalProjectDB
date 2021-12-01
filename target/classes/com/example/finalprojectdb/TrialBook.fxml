@@ -120,7 +120,7 @@
                 <Pane fx:id="pnlMenus" prefHeight="200.0" prefWidth="200.0" />
                 <Pane fx:id="pnlOverview" prefHeight="554.0" prefWidth="793.0">
                     <children>
-                        <TextField layoutX="585.0" layoutY="47.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" />
+                        <TextField editable="false" layoutX="585.0" layoutY="47.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" text="Learning is fun" />
                         <Label layoutX="57.0" layoutY="25.0" text="Trial Session booking" textFill="#e7e5e5">
                             <font>
                                 <Font size="24.0" />
@@ -257,7 +257,12 @@
                                  <children>
                                     <Button fx:id="registerBtn" alignment="CENTER" mnemonicParsing="false" onAction="#Register" prefHeight="46.0" prefWidth="116.0" style="-fx-background-color: red;" text="Register">
                                        <HBox.margin>
-                                          <Insets left="300.0" top="50.0" />
+                                          <Insets left="200.0" top="50.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="DeregisterBtn" alignment="CENTER" mnemonicParsing="false" onAction="#Deregister" prefHeight="46.0" prefWidth="116.0" style="-fx-background-color: red;" text="Deregister">
+                                       <HBox.margin>
+                                          <Insets left="50.0" top="50.0" />
                                        </HBox.margin>
                                     </Button>
                                  </children>
